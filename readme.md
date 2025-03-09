@@ -37,8 +37,7 @@ Prerequisites <br>
 <br>
 
 Steps to Run <br>
-1️⃣ Clone this repository
-```bash
+1️⃣ Clone this repository <br>
 # Update package list
 sudo apt update
 
