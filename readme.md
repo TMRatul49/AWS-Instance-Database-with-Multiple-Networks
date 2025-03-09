@@ -70,8 +70,7 @@ terraform init
 terraform apply
 <br>
 
-6️⃣ Verify deployment using Terraform output 
-<br>
+6️⃣ Verify deployment using Terraform output <br>
 After execution, Terraform generates a graph of deployed AWS instances and databases. <br>
 
 📊 Results & Discussion <br>
