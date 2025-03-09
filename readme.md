@@ -1,4 +1,4 @@
-#🚀 AWS Instance & Database with Multiple Networks <br>
+# 🚀 AWS Instance & Database with Multiple Networks <br>
 📌 Project Overview <br>
 This project investigates the strategic deployment of AWS instances and databases across multiple networks to enhance security, performance, and resource isolation. By leveraging Amazon Virtual Private Cloud (VPC), security groups, and network access control lists (NACLs), we explore best practices for optimizing cloud networking.<br>
 The project also analyzes network design strategies such as VPC Peering, Transit Gateway, and VPN connections, ensuring scalable, cost-effective, and secure AWS deployments. <br>
