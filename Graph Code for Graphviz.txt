@@ -1,0 +1,91 @@
+digraph {
+        compound = "true"
+        newrank = "true"
+        subgraph "root" {
+                "[root] aws_eip.public_http (expand)" [label = "aws_eip.public_http", shape = "box"]
+                "[root] aws_instance.db (expand)" [label = "aws_instance.db", shape = "box"]
+                "[root] aws_instance.http (expand)" [label = "aws_instance.http", shape = "box"]
+                "[root] aws_internet_gateway.gw (expand)" [label = "aws_internet_gateway.gw", shape = "box"]
+                "[root] aws_key_pair.user_key (expand)" [label = "aws_key_pair.user_key", shape = "box"]
+                "[root] aws_route_table.public (expand)" [label = "aws_route_table.public", shape = "box"]
+                "[root] aws_route_table_association.db (expand)" [label = "aws_route_table_association.db", shape = "box"]
+                "[root] aws_route_table_association.http (expand)" [label = "aws_route_table_association.http", shape = "box"]
+                "[root] aws_security_group.administration (expand)" [label = "aws_security_group.administration", shape = "box"]
+                "[root] aws_security_group.db (expand)" [label = "aws_security_group.db", shape = "box"]
+                "[root] aws_security_group.web (expand)" [label = "aws_security_group.web", shape = "box"]
+                "[root] aws_security_group_rule.db_port (expand)" [label = "aws_security_group_rule.db_port", shape = "box"]
+                "[root] aws_security_group_rule.http (expand)" [label = "aws_security_group_rule.http", shape = "box"]
+                "[root] aws_security_group_rule.https (expand)" [label = "aws_security_group_rule.https", shape = "box"]
+                "[root] aws_security_group_rule.icmp (expand)" [label = "aws_security_group_rule.icmp", shape = "box"]
+                "[root] aws_security_group_rule.public_access (expand)" [label = "aws_security_group_rule.public_access", shape = "box"]
+                "[root] aws_security_group_rule.public_access_db (expand)" [label = "aws_security_group_rule.public_access_db", shape = "box"]
+                "[root] aws_security_group_rule.public_access_web (expand)" [label = "aws_security_group_rule.public_access_web", shape = "box"]
+                "[root] aws_security_group_rule.ssh (expand)" [label = "aws_security_group_rule.ssh", shape = "box"]
+                "[root] aws_subnet.db (expand)" [label = "aws_subnet.db", shape = "box"]
+                "[root] aws_subnet.http (expand)" [label = "aws_subnet.http", shape = "box"]
+                "[root] aws_vpc.terraform (expand)" [label = "aws_vpc.terraform", shape = "box"]
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+                "[root] var.ami" [label = "var.ami", shape = "note"]
+                "[root] var.db_instance_names" [label = "var.db_instance_names", shape = "note"]
+                "[root] var.http_instance_names" [label = "var.http_instance_names", shape = "note"]
+                "[root] var.network_db" [label = "var.network_db", shape = "note"]
+                "[root] var.network_http" [label = "var.network_http", shape = "note"]
+                "[root] var.public_key" [label = "var.public_key", shape = "note"]
+                "[root] var.tags" [label = "var.tags", shape = "note"]
+                "[root] var.vpc_cidr" [label = "var.vpc_cidr", shape = "note"]
+                "[root] aws_eip.public_http (expand)" -> "[root] aws_instance.http (expand)"
+                "[root] aws_instance.db (expand)" -> "[root] aws_key_pair.user_key (expand)"
+                "[root] aws_instance.db (expand)" -> "[root] aws_security_group.administration (expand)"
+                "[root] aws_instance.db (expand)" -> "[root] aws_security_group.db (expand)"
+                "[root] aws_instance.db (expand)" -> "[root] aws_subnet.db (expand)"
+                "[root] aws_instance.db (expand)" -> "[root] var.ami"
+                "[root] aws_instance.db (expand)" -> "[root] var.http_instance_names"
+                "[root] aws_instance.http (expand)" -> "[root] aws_key_pair.user_key (expand)"
+                "[root] aws_instance.http (expand)" -> "[root] aws_security_group.administration (expand)"
+                "[root] aws_instance.http (expand)" -> "[root] aws_security_group.db (expand)"
+                "[root] aws_instance.http (expand)" -> "[root] aws_subnet.db (expand)"
+                "[root] aws_instance.http (expand)" -> "[root] var.ami"
+                "[root] aws_instance.http (expand)" -> "[root] var.http_instance_names"
+                "[root] aws_internet_gateway.gw (expand)" -> "[root] aws_vpc.terraform (expand)"
+                "[root] aws_key_pair.user_key (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+                "[root] aws_key_pair.user_key (expand)" -> "[root] var.public_key"
+                "[root] aws_route_table.public (expand)" -> "[root] aws_internet_gateway.gw (expand)"
+                "[root] aws_route_table_association.db (expand)" -> "[root] aws_route_table.public (expand)"
+                "[root] aws_route_table_association.db (expand)" -> "[root] aws_subnet.db (expand)"
+                "[root] aws_route_table_association.http (expand)" -> "[root] aws_route_table.public (expand)"
+                "[root] aws_route_table_association.http (expand)" -> "[root] aws_subnet.db (expand)"
+                "[root] aws_security_group.administration (expand)" -> "[root] aws_vpc.terraform (expand)"
+                "[root] aws_security_group.db (expand)" -> "[root] aws_vpc.terraform (expand)"
+                "[root] aws_security_group.web (expand)" -> "[root] aws_vpc.terraform (expand)"
+                "[root] aws_security_group_rule.db_port (expand)" -> "[root] aws_security_group.web (expand)"
+                "[root] aws_security_group_rule.http (expand)" -> "[root] aws_security_group.web (expand)"
+                "[root] aws_security_group_rule.https (expand)" -> "[root] aws_security_group.web (expand)"
+                "[root] aws_security_group_rule.icmp (expand)" -> "[root] aws_security_group.administration (expand)"
+                "[root] aws_security_group_rule.public_access (expand)" -> "[root] aws_security_group.administration (expand)"
+                "[root] aws_security_group_rule.public_access_db (expand)" -> "[root] aws_security_group.web (expand)"
+                "[root] aws_security_group_rule.public_access_web (expand)" -> "[root] aws_security_group.web (expand)"
+                "[root] aws_security_group_rule.ssh (expand)" -> "[root] aws_security_group.administration (expand)"
+                "[root] aws_subnet.db (expand)" -> "[root] aws_internet_gateway.gw (expand)"
+                "[root] aws_subnet.db (expand)" -> "[root] var.network_db"
+                "[root] aws_subnet.http (expand)" -> "[root] aws_internet_gateway.gw (expand)"
+                "[root] aws_subnet.http (expand)" -> "[root] var.network_http"
+                "[root] aws_vpc.terraform (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+                "[root] aws_vpc.terraform (expand)" -> "[root] var.vpc_cidr"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_eip.public_http (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.db (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.db (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.http (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group_rule.db_port (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group_rule.http (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group_rule.https (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group_rule.icmp (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group_rule.public_access (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group_rule.public_access_db (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group_rule.public_access_web (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group_rule.ssh (expand)"
+                "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_subnet.http (expand)"
+                "[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+                "[root] root" -> "[root] var.db_instance_names"
+                "[root] root" -> "[root] var.tags"
+        }
+}
